@@ -1,23 +1,18 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Hora do Desafio';
+let numeroSecreto = gerarNumeroAleatorio();
 
-function verificarConsole() {
-    console.log('O botão foi clicado');
+function exibirTextoNaTela(tag, texto) {
+    let campo = document.querySelector(tag);
+    campo.innerHTML = texto;
 }
 
-function verificarAlerta() {
-    alert('Eu amo JS')
+exibirTextoNaTela('h1', 'Jogo do número secreto');
+exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
+
+function verificarChute() {
+    let chute = document.querySelector('input').value;
+    console.log(chute == numeroSecreto);
 }
 
-
-function verificarPrompt() {
-    let nomeDaCidade = prompt('Qual cidade você está?')
-    alert(`Estive em ${nomeDaCidade} e lembrei de você!`)
-}
-
-function realizarSoma(){
-    let primeiroNumero = prompt('Digite o primeiro número');
-    let segundoNumero = prompt('Digite o segundo número');
-    const somarDoisNumeros = Number(primeiroNumero) + Number(segundoNumero);
-   alert(`A soma dos dois número é : ${somarDoisNumeros}`)
+function gerarNumeroAleatorio() {
+    return parseInt(Math.random() * 10 + 1);
 }
